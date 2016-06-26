@@ -25,10 +25,11 @@ include('include/navbar.php');
                 $add_comment=$function_object->add_comment($name,$email,$comment);
 
                 if ($add_comment) {
-                    echo("THANK YOU ! for your comment");
+
+                    echo "<div class='alert alert-success'>THANK YOU ! for your comment</div>";
                 }
                 else{
-                    echo("There is a problem");
+                    echo"<div class='alert alert-danger'>There is a problem</div>";
                 }
 
             }

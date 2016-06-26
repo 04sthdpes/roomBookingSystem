@@ -15,22 +15,28 @@ echo "<div class='container'>";
 				<th>Action</th>
 			</tr>
 			<?php
-				$get_room_inventory=$function_object->get_room_inventory();
-				while($data=mysql_fetch_array($get_room_inventory)){ 					
-			?>
-			<tr>
-				<td>
+			$get_room_inventory_num=$function_object->get_room_inventory_num();
+			if($get_room_inventory_num != 0){
+				$get_room_inventory=$function_object->get_room_inventory();				
+					while($data=mysql_fetch_array($get_room_inventory)){ 					
+				?>
+				<tr>
+					<td>
+						<?php
+							$get_list=$function_object->get_list(); 
+							echo $get_list['floor'];
+						?>
+					</td>
+					<td><?php echo $data['booked_date']?></td>
+					<td>
+						<a href="cancel.php?id=<?php echo $data['user_id'] ;?>"><button class="btn btn-danger">cancel</button></a>
+					</td>
 					<?php
-						$get_list=$function_object->get_list(); 
-						echo $get_list['floor'];
-					?>
-				</td>
-				<td><?php echo $data['booked_date']?></td>
-				<td>
-					<a href="cancel.php?id=<?php echo $data['user_id'] ;?>"><button class="btn btn-danger">cancel</button></a>
-				</td>
-			<?php
-			}
+					}
+				}
+				else{
+					echo'<div class="alert alert-info">Please booked your room</div>';
+				}
 			?>
 			</tr>	
 		</table>

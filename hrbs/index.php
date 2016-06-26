@@ -49,7 +49,10 @@ if (!mysql_select_db("hms"))
 									header('location:user_panel.php');}
 							}
 							else{
-								echo "Invalid username or password";
+								echo '
+								<div class="alert alert-danger" role="alert">
+								  Invalid username or password
+								</div>';
 							}
 						}			
 					}

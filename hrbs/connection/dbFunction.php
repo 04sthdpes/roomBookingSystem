@@ -82,6 +82,13 @@
 			$query=mysql_query("SELECT * FROM `tbl_room_inventory` WHERE user_id='$user_id'");
 			return $query;
 		}
+		//getting detail from tbl_roon n tbl_room_inventory
+		public function get_room_inventory_num(){
+			$user_id=$_SESSION['user_id'];
+			$query=mysql_query("SELECT * FROM `tbl_room_inventory` WHERE user_id='$user_id'");
+			$row=mysql_num_rows($query);
+			return $row;
+		}
 
 		//get floor
 		public function get_floor(){			

@@ -33,19 +33,11 @@
 
 						$check_user=$function_object->check_user($username);
 						if($check_user>0){
-							echo '<div class="container">';
-								echo '<div class="msg">';
-								echo "Sorry username already exist";
-								echo '</div>';
-							echo '</div>';
-						}
+							echo '<div class="alert alert-info" role="alert">Sorry username already exist</div>';
+							}	
 						else{
 							$add_user=$function_object->add_user($name,$address,$phone,$email,$username,$password);
-							echo '<div class="container">';
-								echo '<div class="msg">';
-							 	echo "Registration Successfully!!!";
-								echo '</div>';
-							echo '</div>';
+							 	echo'<div class="alert alert-success" role="alert">Registration Successfully!!!</div>';
 						}
 					}
 				?>

@@ -14,7 +14,7 @@ require_once('connection/dbFunction.php');
 					$reserve_room_by_user=$function_object->reserve_room_by_user();
 					if($reserve_room_by_user>=1){
 						echo "<img src='images/room.jpg' class='img-responsive'style='height: 400px;width: 950px;'>";
-						echo "<h2>you have already booked your room </h2><br/>";
+						echo "<div class='alert alert-warning' role='alert'><h2>you have already booked your room</h2></div><br/>";
 						echo "<a href='list.php'>Check your reservation</a>";
 					}
 					else{
